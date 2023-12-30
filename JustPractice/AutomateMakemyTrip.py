@@ -1,9 +1,8 @@
 import time
 
 from selenium import webdriver
-from selenium.common import NoSuchElementException
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from PIL import Image
@@ -13,7 +12,7 @@ from selenium.webdriver.support import expected_conditions
 
 def closePopUp(driver,action):
     time.sleep(2)
-    action.click(driver.find_element(By.XPATH, "//span[@data-cy='closeModal']")).perform()
+    action.click(driver.find_element(By.CSS_SELECTOR, "#webklipper-publisher-widget-container-notification-close-div")).perform()
 
 def enterFromandTo(fromOrTo,cityName,action):
     fromOrTo.send_keys(cityName)
@@ -29,18 +28,15 @@ def clickParticularDate(driver,date):
             allPrices[i].click()
             break
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option("detach", True)
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome()
 driver.maximize_window()
 wait = WebDriverWait(driver, timeout=20)
 
 driver.get("https://makemytrip.com")
 driver.set_page_load_timeout(20)
 action = ActionChains(driver)
-
-closePopUp(driver,action)
-closePopUp(driver,action)
+time.sleep(15)
+# closePopUp(driver,action)
 
 From = driver.find_element(By.XPATH, "//input[@id='fromCity']")
 To = driver.find_element(By.XPATH, "//input[@id='toCity']")
@@ -51,6 +47,3 @@ clickParticularDate(driver,"17")
 
 searchBtn = driver.find_element(By.XPATH,"//a[text()='Search']")
 searchBtn.click()
-
-
-
