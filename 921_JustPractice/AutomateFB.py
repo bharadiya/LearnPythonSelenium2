@@ -7,10 +7,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-driver = webdriver.Chrome("C:\\Users\\poona\\PycharmProjects\\LearnSelenium\\drivers\\chromedriver.exe")
+driver = webdriver.Chrome("/drivers/chromedriver.exe")
 driver.maximize_window()
 
 driver.get("https://fb.com")
+
+driver.save_screenshot("abc.png")
 
 webelementEmail = driver.find_element(By.XPATH,"//input[@placeholder='Email address or phone number']")
 webElementPassword = driver.find_element(By.NAME,"pass")
