@@ -24,7 +24,6 @@ class AppTesting(unittest.TestCase):
     def test_prepaidRecharge(self):
         print("This is prepaid recharge test")
 
-    @unittest.SkipTest
     def test_postpaidRecharge(self):
         print("This is post paid test")
 
