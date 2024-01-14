@@ -10,43 +10,18 @@ from selenium import webdriver
 #     print("tear down module after class level at suite level")
 
 class AppTesting(unittest.TestCase):
-    @classmethod
-    def setUp(self):
-        print("Before Every Test - Login")
-
-    @classmethod
-    def setUpClass(cls):
-        print("Before Class only 1 time - Open Browser and hit URL")
-
     def test_search(self):
         print("This is search test - Functionality no . 1")
 
+    @unittest.SkipTest
     def test_AdvancedSearch(self):
         print("This is advanced search test - Functionality no . 2")
-
+    @unittest.skip("As client told")
     def test_prepaidRecharge(self):
         print("This is prepaid recharge test - Functionality no . 3")
-
+    @unittest.skipIf(1==2,"as condition is passed")
     def test_postpaidRecharge(self):
         print("This is post paid test - Functionality no . 4")
 
-    @classmethod
-    def tearDown(self):
-        print("After every test - Logout")
-
-    #
-    @classmethod
-    def tearDownClass(cls):
-        print("After Class only 1 time - Close browser")
-
-
 if __name__ == "__main__":
     unittest.main()
-
-# set up method will run before every test case (self)
-# teardown method will run after every test case (self)
-# setUpClass method will run one time before class (cls)
-# tearDownClass method will run one time after class  (cls)
-#
-#
-# all this methods name should be exactly same except for your test case and you need to add @classMethod annotation on the top of method

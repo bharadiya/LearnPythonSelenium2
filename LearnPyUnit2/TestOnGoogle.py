@@ -2,29 +2,24 @@ import unittest
 import time
 
 from selenium import webdriver
-
+from Pages.Loginpage import Loginpage
 class AppTesting(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome("../drivers/chromedriver.exe")
+        cls.driver.maximize_window()
+        cls.driver.get("https://fb.com")
 
     def test_AssertGoogleTitle(self):
-        driver = webdriver.Chrome()
-        driver.maximize_window()
-        driver.get("https://google.com")
-        getTitle = driver.title
-        print(getTitle)
-        self.assertNotEqual("Googl",getTitle)
+        lp = Loginpage(self.driver)
+        lp.enterUserName(self.driver,"ABC")
+        lp.enterPassword(self.driver,"DEF")
+        lp.clickLoginButton(self.driver)
 
-    # def test_AssertGoogleTitle(self):
-    #     driver = webdriver.Chrome()
-    #     driver.maximize_window()
-    #     driver.get("https://google.com")
-    #     getTitle = driver.title
-    #     print(getTitle)
-    #     print("Googl" == getTitle)
-    #     self.assertFalse("Googl" == getTitle)
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
 
-    # def test_AssertNoneParams(self):
-    #     d = None
-    #     self.assertIsNotNone(d)
 
 if __name__ == "__main__":
     unittest.main()
