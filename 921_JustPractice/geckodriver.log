@@ -1,0 +1,13 @@
+1705762417661	geckodriver	INFO	Listening on 127.0.0.1:55548
+1705762420702	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\poona\\AppData\\Local\\Temp\\rust_mozprofileS5C4Zt"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1705762421220	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1705762421842	Marionette	INFO	Listening on port 55558
+Read port: 55558
+1705762422095	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XULStore.sys.mjs, line 60: Error: Can't find profile directory.
+1705762427590	Marionette	INFO	Stopped listening on port 55558
+Dynamically enable window occlusion 1
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 51: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
